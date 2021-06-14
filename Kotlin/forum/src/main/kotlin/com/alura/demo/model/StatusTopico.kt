@@ -5,5 +5,4 @@ enum class StatusTopico {
     NAO_SOLUCIONADO,
     SOLUCIONADO,
     FECHADO
-
 }
