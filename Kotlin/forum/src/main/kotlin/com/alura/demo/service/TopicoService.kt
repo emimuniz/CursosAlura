@@ -8,6 +8,8 @@ import com.alura.demo.mapper.TopicoFormMapper
 import com.alura.demo.mapper.TopicoViewMapper
 import com.alura.demo.model.Topico
 import com.alura.demo.repository.TopicoRepository
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
 import java.util.stream.Collectors
@@ -23,15 +25,18 @@ class TopicoService(
 
     private val notFoundMessage: String = "Topico não encontrado!"
 
-    fun listar(nomeCurso: String?) :   List<TopicoView>{
+    fun listar(
+        nomeCurso: String?,
+        paginacao: Pageable
+    ) :   Page<TopicoView>{
         val topicos = if(nomeCurso == null){
-            repository.findAll()
+            repository.findAll(paginacao)
         }else{
-            repository.findByCursoNome(nomeCurso)
+            repository.findByCursoNome(nomeCurso, paginacao)
         }
-       return topicos.stream().map {
+       return topicos.map {
            t -> topicoViewMapper.map(t)
-       }.collect(Collectors.toList())
+       }
     }
 
     fun buscarPorId(id: Long): TopicoView {
