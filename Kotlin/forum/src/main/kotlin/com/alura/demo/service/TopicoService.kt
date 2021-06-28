@@ -2,6 +2,7 @@ package com.alura.demo.service
 
 import com.alura.demo.dto.AtualizarTopicoForm
 import com.alura.demo.dto.TopicoForm
+import com.alura.demo.dto.TopicoPorCategoriaDto
 import com.alura.demo.dto.TopicoView
 import com.alura.demo.exception.NotFoundException
 import com.alura.demo.mapper.TopicoFormMapper
@@ -61,6 +62,10 @@ class TopicoService(
 
     fun deletar(id: Long) {
         repository.deleteById(id)
+    }
+
+    fun relatorio() : List<TopicoPorCategoriaDto>{
+        return repository.relatorio()
     }
 
 }

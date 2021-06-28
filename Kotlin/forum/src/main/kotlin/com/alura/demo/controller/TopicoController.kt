@@ -3,6 +3,7 @@ package com.alura.demo.controller
 import com.alura.demo.dto.TopicoForm
 import com.alura.demo.dto.TopicoView
 import com.alura.demo.dto.AtualizarTopicoForm
+import com.alura.demo.dto.TopicoPorCategoriaDto
 import com.alura.demo.service.TopicoService
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.cache.annotation.Cacheable
@@ -61,6 +62,11 @@ class TopicoController(private val service: TopicoService) {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable id:Long){
         service.deletar(id)
+    }
+
+    @GetMapping("/relatorio")
+    fun relatorio() : List<TopicoPorCategoriaDto>{
+        return service.relatorio()
     }
 
 
