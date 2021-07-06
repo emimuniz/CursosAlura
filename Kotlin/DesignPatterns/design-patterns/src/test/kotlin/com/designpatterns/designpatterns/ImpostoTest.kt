@@ -1,7 +1,8 @@
 package com.designpatterns.designpatterns
 
 import com.designpatterns.designpatterns.imposto.CalculadoraDeImpostos
-import com.designpatterns.designpatterns.imposto.TipoImposto
+import com.designpatterns.designpatterns.imposto.ICMS
+import com.designpatterns.designpatterns.imposto.ISS
 import com.designpatterns.designpatterns.orcamento.Orcamento
 import org.junit.jupiter.api.Assertions
 import org.junit.Test
@@ -21,7 +22,7 @@ class ImpostoTest {
     fun `Ao enviar o salario tera que retornar o valor do imposto de ICMS`(){
         val orcamento = Orcamento(BigDecimal("100"))
         val calculadora = CalculadoraDeImpostos()
-        val imposto = calculadora.calcular(orcamento, TipoImposto.ICMS)
+        val imposto = calculadora.calcular(orcamento, ICMS())
 
         Assertions.assertEquals(imposto, BigDecimal("10.0"))
 
@@ -31,7 +32,7 @@ class ImpostoTest {
     fun `Ao enviar o salario tera que retornar o valor do imposto De ISS`(){
         val orcamento = Orcamento(BigDecimal("100"))
         val calculadora = CalculadoraDeImpostos()
-        val imposto = calculadora.calcular(orcamento, TipoImposto.ISS)
+        val imposto = calculadora.calcular(orcamento, ISS())
 
         Assertions.assertEquals(imposto, BigDecimal("6.00"))
 

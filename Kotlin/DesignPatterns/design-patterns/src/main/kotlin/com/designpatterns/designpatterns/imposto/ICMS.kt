@@ -3,10 +3,9 @@ package com.designpatterns.designpatterns.imposto
 import com.designpatterns.designpatterns.orcamento.Orcamento
 import java.math.BigDecimal
 
-class CalculadoraDeImpostos {
+class ICMS : Imposto{
 
-    fun calcular(orcamento: Orcamento, imposto: Imposto) : BigDecimal {
-        return imposto.calcular(orcamento)
+    override fun calcular(orcamento: Orcamento) : BigDecimal{
+        return orcamento.valor.multiply(BigDecimal("0.1"))
     }
-
 }
