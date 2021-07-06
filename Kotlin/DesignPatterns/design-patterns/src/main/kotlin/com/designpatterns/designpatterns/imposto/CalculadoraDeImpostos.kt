@@ -5,7 +5,10 @@ import java.math.BigDecimal
 
 class CalculadoraDeImpostos {
 
-    fun calcular(orcamento: Orcamento): BigDecimal{
-        return orcamento.valor.multiply(BigDecimal("0.1"))
-    }
+    fun calcular(orcamento: Orcamento, tipoImposto: TipoImposto) =
+
+        when(tipoImposto){
+            TipoImposto.ICMS -> orcamento.valor.multiply(BigDecimal("0.1"))
+            TipoImposto.ISS ->  orcamento.valor.multiply(BigDecimal("0.06"))
+        }
 }
