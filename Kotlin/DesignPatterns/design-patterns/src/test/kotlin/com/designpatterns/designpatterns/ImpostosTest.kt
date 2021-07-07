@@ -16,11 +16,11 @@ import java.math.BigDecimal
 @RunWith(SpringRunner::class)
 @SpringBootTest
 @ActiveProfiles("test")
-class ImpostoTest {
+class ImpostosTest {
 
     @org.junit.Test
     fun `Ao enviar o salario tera que retornar o valor do imposto de ICMS`(){
-        val orcamento = Orcamento(BigDecimal("100"))
+        val orcamento = Orcamento(BigDecimal("100"),1)
         val calculadora = CalculadoraDeImpostos()
         val imposto = calculadora.calcular(orcamento, ICMS())
 
@@ -30,7 +30,7 @@ class ImpostoTest {
 
     @Test
     fun `Ao enviar o salario tera que retornar o valor do imposto De ISS`(){
-        val orcamento = Orcamento(BigDecimal("100"))
+        val orcamento = Orcamento(BigDecimal("100"), 1)
         val calculadora = CalculadoraDeImpostos()
         val imposto = calculadora.calcular(orcamento, ISS())
 
