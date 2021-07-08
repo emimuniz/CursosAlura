@@ -18,7 +18,7 @@ import java.math.BigDecimal
 @ActiveProfiles("test")
 class ImpostosTest {
 
-    @org.junit.Test
+    @Test
     fun `Ao enviar o salario tera que retornar o valor do imposto de ICMS`(){
         val orcamento = Orcamento(BigDecimal("100"),1)
         val calculadora = CalculadoraDeImpostos()

@@ -35,7 +35,7 @@ class DescontosTest {
         val calculadora = CalculadoraDeDescontos()
         val imposto = calculadora.calcular(orcamento)
 
-        Assertions.assertEquals(imposto, BigDecimal("100.0"))
+        Assertions.assertEquals(imposto, BigDecimal("50.00"))
 
     }
 }
