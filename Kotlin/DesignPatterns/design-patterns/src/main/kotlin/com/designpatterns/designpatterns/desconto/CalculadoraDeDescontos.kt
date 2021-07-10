@@ -6,11 +6,11 @@ import java.math.BigDecimal
 
 class CalculadoraDeDescontos {
 
-    fun calcular(orcamento: Orcamento?): BigDecimal? {
-        val desconto: Desconto = DescontoQuantidadeItens(
+    fun calcular(orcamento: Orcamento): BigDecimal? {
+        val cadeiaDeDescontos: Desconto = DescontoQuantidadeItens(
             DescontoValorItens(SemDesconto())
         )
-        return desconto.calcular(orcamento)
+        return cadeiaDeDescontos.calcular(orcamento)
     }
 }
 

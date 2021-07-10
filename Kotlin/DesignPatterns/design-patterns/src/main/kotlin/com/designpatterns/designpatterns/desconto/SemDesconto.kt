@@ -5,7 +5,9 @@ import java.math.BigDecimal
 
 
 class SemDesconto : Desconto(null) {
-    override fun calcular(orcamento: Orcamento?): BigDecimal? {
+    override fun efetuarCalculo(orcamento: Orcamento): BigDecimal {
         return BigDecimal.ZERO
     }
+
+    override fun deveAplicar(orcamento: Orcamento?) = true
 }

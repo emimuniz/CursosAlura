@@ -6,11 +6,8 @@ import java.math.BigDecimal
 
 class DescontoValorItens(proximo: Desconto?) : Desconto(proximo!!) {
 
-    override fun calcular(orcamento: Orcamento?): BigDecimal? {
-         if (orcamento!!.valor > BigDecimal("500")) {
-            return orcamento.valor.multiply(BigDecimal("0.05"))
-        }
+    override fun efetuarCalculo(orcamento: Orcamento) = orcamento.valor.multiply(BigDecimal("0.05"))
 
-        return proximo!!.calcular(orcamento)
-    }
+    override fun deveAplicar(orcamento: Orcamento?) = orcamento!!.valor > BigDecimal("500")
+
 }
