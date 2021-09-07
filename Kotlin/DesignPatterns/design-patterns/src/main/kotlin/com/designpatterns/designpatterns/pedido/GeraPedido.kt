@@ -5,7 +5,4 @@ import com.designpatterns.designpatterns.orcamento.Orcamento
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
-class GeraPedido(val cliente: String, val valorOrcamento: BigDecimal, val quantidadeItens: Int){
-
-
-}
+class GeraPedido(val cliente: String, val valorOrcamento: BigDecimal, val quantidadeItens: Int)

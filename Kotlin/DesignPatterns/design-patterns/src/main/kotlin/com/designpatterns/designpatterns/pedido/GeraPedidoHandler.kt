@@ -1,11 +1,12 @@
 package com.designpatterns.designpatterns.pedido
 
+import com.designpatterns.designpatterns.acao.AcaoAposGerarPedido
 import com.designpatterns.designpatterns.orcamento.Orcamento
 import java.time.LocalDateTime
 
 class GeraPedidoHandler {
 
-    //constructor com injeção de dependencias: repository, service etc..
+    private val acoes = List<AcaoAposGerarPedido>
 
     fun executa(dados: GeraPedido){
 
