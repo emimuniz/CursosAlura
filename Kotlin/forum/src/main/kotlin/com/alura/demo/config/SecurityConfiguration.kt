@@ -26,11 +26,11 @@ class SecurityConfiguration(
         httpBasic()
     }
     @Bean
-    fun byCryptPasswordEncoder(): BCryptPasswordEncoder{
+    fun bCryptPasswordEncoder(): BCryptPasswordEncoder{
         return BCryptPasswordEncoder()
     }
 
     override fun configure(auth: AuthenticationManagerBuilder?) {
-        auth?.userDetailsService(userDetailsService)?.passwordEncoder(byCryptPasswordEncoder())
+        auth?.userDetailsService(userDetailsService)?.passwordEncoder(bCryptPasswordEncoder())
     }
 }
